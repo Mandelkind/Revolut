@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		Revolut.api("sand_rCN8eyhbSXyRLLvHauZE57VeJkcuYG-y64KgSdnTQGs")
 		Revolut.api.accounts{ accounts, error in
 			

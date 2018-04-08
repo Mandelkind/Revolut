@@ -25,12 +25,12 @@ public struct Account: Codable {
 		case currencyCode = "currency"
 		case state
 		case isPublic = "public"
-		case createdAt = "created_at"
-		case updatedAt = "updated_at"
+		case createdAt
+		case updatedAt
 	}
 }
 
 public enum AccountState: String, Codable {
-	case active = "active"
-	case inactive = "inactive"
+	case active
+	case inactive
 }

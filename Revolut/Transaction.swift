@@ -9,9 +9,9 @@
 import Foundation
 
 public struct TransactionCreatedEvent: Codable {
-	let eventName: String
-	let timestamp: Date
-	let data: Transaction
+	var eventName: String
+	var timestamp: Date
+	var data: Transaction
 	
 	enum CodingKeys: String, CodingKey {
 		case eventName = "event"
@@ -22,9 +22,9 @@ public struct TransactionCreatedEvent: Codable {
 
 
 public struct TransactionStateChangedEvent: Codable {
-	let eventName: String
-	let timestamp: Date
-	let data: TransactionStateChanged
+	var eventName: String
+	var timestamp: Date
+	var data: TransactionStateChanged
 	
 	enum CodingKeys: String, CodingKey {
 		case eventName = "event"
@@ -35,56 +35,40 @@ public struct TransactionStateChangedEvent: Codable {
 
 
 public struct TransactionStateChanged: Codable {
-	let id: String
-	let oldState: TransactionState
-	let newState: TransactionState
+	var id: String
+	var oldState: TransactionState
+	var newState: TransactionState
 }
 
 
 public struct Transaction: Codable {
-	let id: String
-	let type: TransactionType
-	let requestId: String?
-	let state: TransactionState
-	let createdAt: Date?
-	let updatedAt: Date?
-	let completedAt: Date?
-	let reference: String
-	let legs: [TransactionLeg]
-	let amount: Decimal
-	let currencyCode: String
-	
-	enum CodingKeys: String, CodingKey {
-		case id
-		case type
-		case requestId = "request_id"
-		case state
-		case createdAt = "created_at"
-		case updatedAt = "updated_at"
-		case completedAt = "completed_at"
-		case reference
-		case legs
-		case amount
-		case currencyCode = "currency"
-	}
+	var id: String
+	var type: TransactionType
+	var requestId: String
+	var state: TransactionState
+	var createdAt: Date
+	var updatedAt: Date?
+	var completedAt: Date?
+	var reference: String
+	var legs: [TransactionLeg]
 }
 
 
 public enum TransactionType: String, Codable {
 	case atm
-	case cardPayment = "card_payment"
-	case cardRefund = "card_refund"
-	case cardChargeback = "card_chargeback"
-	case cardCredit = "card_credit"
+	case cardPayment
+	case cardRefund
+	case cardChargeback
+	case cardCredit
 	case exchange
 	case transfer
 	case loan
 	case fee
 	case refund
 	case topup
-	case topupReturn = "topup_return"
+	case topupReturn
 	case tax
-	case taxRefund = "tax_refund"
+	case taxRefund
 }
 
 
@@ -98,18 +82,17 @@ public enum TransactionState: String, Codable {
 
 
 public struct TransactionLeg: Codable {
-	let id: String
-	let currencyCode: String
-	let amount: Decimal
-	let accountId: String
-	let counterParty: CounterPartyAccount
+	var id: String
+	var currencyCode: String
+	var amount: Decimal?
+	var accountId: String
+	var counterParty: CounterPartyAccount
 	
 	enum CodingKeys: String, CodingKey {
-		case id = "leg_id"
+		case id = "legId"
 		case currencyCode = "currency"
 		case amount
-		case accountId = "account_id"
+		case accountId
 		case counterParty = "counterparty"
-		
 	}
 }
