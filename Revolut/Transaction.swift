@@ -9,9 +9,9 @@
 import Foundation
 
 public struct TransactionCreatedEvent: Codable {
-	var eventName: String
-	var timestamp: Date
-	var data: Transaction
+	public let eventName: String
+	public let timestamp: Date
+	public let data: Transaction
 	
 	enum CodingKeys: String, CodingKey {
 		case eventName = "event"
@@ -22,9 +22,9 @@ public struct TransactionCreatedEvent: Codable {
 
 
 public struct TransactionStateChangedEvent: Codable {
-	var eventName: String
-	var timestamp: Date
-	var data: TransactionStateChanged
+	public let eventName: String
+	public let timestamp: Date
+	public let data: TransactionStateChanged
 	
 	enum CodingKeys: String, CodingKey {
 		case eventName = "event"
@@ -35,22 +35,22 @@ public struct TransactionStateChangedEvent: Codable {
 
 
 public struct TransactionStateChanged: Codable {
-	var id: String
-	var oldState: TransactionState
-	var newState: TransactionState
+	public let id: String
+	public let oldState: TransactionState
+	public let newState: TransactionState
 }
 
 
 public struct Transaction: Codable {
-	var id: String
-	var type: TransactionType
-	var requestId: String
-	var state: TransactionState
-	var createdAt: Date
-	var updatedAt: Date?
-	var completedAt: Date?
-	var reference: String
-	var legs: [TransactionLeg]
+	public let id: String
+	public let type: TransactionType
+	public let requestId: String
+	public let state: TransactionState
+	public let createdAt: Date
+	public let updatedAt: Date?
+	public let completedAt: Date?
+	public let reference: String
+	public let legs: [TransactionLeg]
 }
 
 
@@ -82,11 +82,11 @@ public enum TransactionState: String, Codable {
 
 
 public struct TransactionLeg: Codable {
-	var id: String
-	var currencyCode: String
-	var amount: Decimal?
-	var accountId: String
-	var counterParty: CounterPartyAccount
+	public let id: String
+	public let currencyCode: String
+	public let amount: Decimal?
+	public let accountId: String
+	public let counterParty: CounterPartyAccount
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "legId"

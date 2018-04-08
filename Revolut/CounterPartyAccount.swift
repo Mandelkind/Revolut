@@ -10,8 +10,8 @@ import Foundation
 
 
 public struct CounterPartyAccount: Codable {
-	var accountId: String
-	var type: CounterPartyAccountType
+	public let accountId: String
+	public let type: CounterPartyAccountType
 }
 
 public enum CounterPartyAccountType: String, Codable {
