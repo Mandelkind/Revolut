@@ -44,9 +44,9 @@ public struct TransactionStateChanged: Codable {
 public struct Transaction: Codable {
 	let id: String
 	let type: TransactionType
-	let requestId: String
+	let requestId: String?
 	let state: TransactionState
-	let createdAt: Date
+	let createdAt: Date?
 	let updatedAt: Date?
 	let completedAt: Date?
 	let reference: String
