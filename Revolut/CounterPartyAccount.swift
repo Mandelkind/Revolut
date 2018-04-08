@@ -17,4 +17,5 @@ public struct CounterPartyAccount: Codable {
 public enum CounterPartyAccountType: String, Codable {
 	case revolut
 	case external
+	case mySelf = "self"
 }
