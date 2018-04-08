@@ -99,6 +99,17 @@ public enum TransactionState: String, Codable {
 
 public struct TransactionLeg: Codable {
 	let id: String
+	let currencyCode: String
+	let amount: Decimal
 	let accountId: String
 	let counterParty: CounterPartyAccount
+	
+	enum CodingKeys: String, CodingKey {
+		case id = "leg_id"
+		case currencyCode = "currency"
+		case amount
+		case accountId = "account_id"
+		case counterParty = "counterparty"
+		
+	}
 }
