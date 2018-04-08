@@ -84,7 +84,7 @@ public enum TransactionState: String, Codable {
 public struct TransactionLeg: Codable {
 	public let id: String
 	public let currencyCode: String
-	public let amount: Decimal?
+	public let amount: Decimal
 	public let accountId: String
 	public let counterParty: CounterPartyAccount
 	
