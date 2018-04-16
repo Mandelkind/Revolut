@@ -44,12 +44,14 @@ public struct TransactionStateChanged: Codable {
 public struct Transaction: Codable {
 	public let id: String
 	public let type: TransactionType
-	public let requestId: String
+	public let requestId: String?
 	public let state: TransactionState
+	public let reasonCode: String?
 	public let createdAt: Date
 	public let updatedAt: Date?
 	public let completedAt: Date?
-	public let reference: String
+	public let scheduledFor: Date?
+	public let reference: String?
 	public let legs: [TransactionLeg]
 }
 
@@ -85,14 +87,26 @@ public struct TransactionLeg: Codable {
 	public let id: String
 	public let currencyCode: String
 	public let amount: Decimal
+	public let billCurrencyCode: String?
+	public let billAmount: Decimal?
 	public let accountId: String
-	public let counterParty: CounterPartyAccount
+	public let counterparty: Account?
+	public let purpose: String?
 	
 	enum CodingKeys: String, CodingKey {
 		case id = "legId"
 		case currencyCode = "currency"
 		case amount
+		case billCurrencyCode = "bill_currency"
+		case billAmount = "bill_amount"
 		case accountId
-		case counterParty = "counterparty"
+		case counterparty
+		case purpose = "description"
+	}
+	
+	public struct Account: Codable {
+		public let id: String
+		public let accountType: Counterparty.AccountType
+		public let accountId: String
 	}
 }
