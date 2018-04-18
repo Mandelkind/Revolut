@@ -15,6 +15,7 @@ enum Error: Swift.Error, CustomNSError, LocalizedError {
 	case notFound
 	case methodNotAllowed
 	case notAcceptable
+	case unprocessableEntity
 	case tooManyRequests
 	case internalServerError
 	case serviceUnavailable
@@ -31,6 +32,7 @@ enum Error: Swift.Error, CustomNSError, LocalizedError {
 		case 404: return Error.notFound
 		case 405: return Error.methodNotAllowed
 		case 406: return Error.notAcceptable
+		case 422: return Error.unprocessableEntity
 		case 429: return Error.tooManyRequests
 		case 500: return Error.internalServerError
 		case 503: return Error.serviceUnavailable
@@ -47,6 +49,7 @@ enum Error: Swift.Error, CustomNSError, LocalizedError {
 		case .notFound: return 404
 		case .methodNotAllowed: return 405
 		case .notAcceptable: return 406
+		case .unprocessableEntity: return 422
 		case .tooManyRequests: return 429
 		case .internalServerError: return 500
 		case .serviceUnavailable: return 503
@@ -61,6 +64,7 @@ enum Error: Swift.Error, CustomNSError, LocalizedError {
 		case .notFound: return "The requested resource could not be found."
 		case .methodNotAllowed: return "You tried to access an endpoint with an invalid method."
 		case .notAcceptable: return "You requested a format that isn't JSON."
+		case .unprocessableEntity: return "The server response does not match the expected format."
 		case .tooManyRequests: return "You're sending too many requests."
 		case .internalServerError: return "We had a problem with our server. Try again later."
 		case .serviceUnavailable: return "We're temporarily offline for maintenance. Please try again later."

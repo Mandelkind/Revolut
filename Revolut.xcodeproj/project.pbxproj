@@ -126,6 +126,7 @@
 				79FF5F2220497E8B00386C1F /* Revolut.h */,
 				79FF5F2320497E8B00386C1F /* Info.plist */,
 				79FF5F3920497EDA00386C1F /* Revolut.swift */,
+				79FF5F3F204980FC00386C1F /* Error.swift */,
 				79081AF3208471FD00530B1C /* Revolut+Accounts.swift */,
 				79081AF52084729E00530B1C /* Revolut+Transactions.swift */,
 				79081AF9208476A100530B1C /* Revolut+Transaction.swift */,
@@ -136,7 +137,6 @@
 				79FF5F592049944C00386C1F /* DateFormatter.swift */,
 				79F77F77207A23B500268401 /* JSONCoding.swift */,
 				79FF5F3B20497EF100386C1F /* Configuration.swift */,
-				79FF5F3F204980FC00386C1F /* Error.swift */,
 			);
 			path = Revolut;
 			sourceTree = "<group>";

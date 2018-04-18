@@ -18,11 +18,11 @@ extension Revolut {
 				return
 			}
 			guard let response = response as? HTTPURLResponse else {
-				completionHandler([],nil)
+				completionHandler(nil, Error.unprocessableEntity)
 				return
 			}
 			guard response.statusCode == 200 else {
-				completionHandler(nil,Error.from(errorCode: response.statusCode))
+				completionHandler(nil, Error.from(errorCode: response.statusCode))
 				return
 			}
 			guard let data = data else {

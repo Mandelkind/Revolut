@@ -11,16 +11,34 @@ import Foundation
 extension Revolut {
 	
 	public func transaction(withId id: String, completionHandler: @escaping ((Transaction?, Swift.Error?) -> Void)) {
-		transactions(where: [.id(id)]) { transactions, error in
-			guard let transactions = transactions else {
-				return completionHandler(nil, error)
+		let urlSession = URLSession(configuration: urlSessionConfiguration)
+		let dataTask = urlSession.dataTask(with: configuration.apiEndpoint
+			.appendingPathComponent("transaction")
+			.appendingPathComponent(id)
+		) { data, response, error in
+			if let error = error {
+				completionHandler(nil,error)
+				return
 			}
-			for transaction in transactions {
-				if transaction.id == id {
-					return completionHandler(transaction, error)
-				}
+			guard let response = response as? HTTPURLResponse else {
+				completionHandler(nil, Error.unprocessableEntity)
+				return
 			}
-			completionHandler(nil, error)
+			guard response.statusCode == 200 else {
+				completionHandler(nil, Error.from(errorCode: response.statusCode))
+				return
+			}
+			guard let data = data else {
+				completionHandler(nil, nil)
+				return
+			}
+			
+			do {
+				completionHandler(try Revolut.jsonDecoder.decode(Transaction.self, from: data), nil)
+			} catch {
+				completionHandler(nil, error)
+			}
 		}
+		dataTask.resume()
 	}
 }

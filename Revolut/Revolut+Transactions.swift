@@ -16,7 +16,6 @@ extension Revolut {
 		case counterparty(Counterparty)
 		case count(Int)
 		case type(TransactionType)
-		case id(String)
 	}
 	
 	public func transactions(where filters: [TransactionsFilter] = [], completionHandler: @escaping (([Transaction]?, Swift.Error?) -> Void)) {
@@ -37,28 +36,24 @@ extension Revolut {
 				urlComponents?.queryItems?.append(URLQueryItem(name: "count", value: String(value)))
 			case .type(let value):
 				urlComponents?.queryItems?.append(URLQueryItem(name: "type", value: value.rawValue))
-			case .id(let value):
-				urlComponents?.queryItems?.append(URLQueryItem(name: "id", value: value))
-			default:
-				break
 			}
 		}
 		
 		guard let url = urlComponents?.url else {
-			return completionHandler(nil,nil)
+			return completionHandler(nil, Error.badRequest)
 		}
 		
 		let dataTask = urlSession.dataTask(with: url) { data, response, error in
 			if let error = error {
-				completionHandler(nil,error)
+				completionHandler(nil, error)
 				return
 			}
 			guard let response = response as? HTTPURLResponse else {
-				completionHandler([],nil)
+				completionHandler(nil, Error.unprocessableEntity)
 				return
 			}
 			guard response.statusCode == 200 else {
-				completionHandler(nil,Error.from(errorCode: response.statusCode))
+				completionHandler(nil, Error.from(errorCode: response.statusCode))
 				return
 			}
 			guard let data = data else {
