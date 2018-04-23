@@ -97,15 +97,15 @@ public struct TransactionLeg: Codable {
 		case id = "legId"
 		case currencyCode = "currency"
 		case amount
-		case billCurrencyCode = "bill_currency"
-		case billAmount = "bill_amount"
+		case billCurrencyCode = "billCurrency"
+		case billAmount
 		case accountId
 		case counterparty
 		case purpose = "description"
 	}
 	
 	public struct Account: Codable {
-		public let id: String
+		public let id: String?
 		public let accountType: Counterparty.AccountType
 		public let accountId: String
 	}
