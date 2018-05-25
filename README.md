@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Mandelkind/Revolut/master/Revolut.png" alt="Swift SDK for the Revolut Open Business API">
+</p>
+
 # Revolut
 Swift SDK for the Revolut Open Business API.
 
