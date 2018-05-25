@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/Mandelkind/Revolut/master/Revolut.png" alt="Swift SDK for the Revolut Open Business API">
+    <img src="https://raw.githubusercontent.com/Mandelkind/Revolut/master/Revolut.png" width="320" alt="Swift SDK for the Revolut Open Business API">
 </p>
 
 # Revolut
