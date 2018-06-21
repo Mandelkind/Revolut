@@ -52,25 +52,27 @@ public struct Transaction: Codable {
 	public let completedAt: Date?
 	public let scheduledFor: Date?
 	public let reference: String?
+	public let merchant: TransactionMerchant?
 	public let legs: [TransactionLeg]
+	public let card: TransactionCard?
 }
 
 
 public enum TransactionType: String, Codable {
 	case atm
-	case cardPayment
-	case cardRefund
-	case cardChargeback
-	case cardCredit
+	case cardPayment = "card_payment"
+	case cardRefund = "card_refund"
+	case cardChargeback = "card_chargeback"
+	case cardCredit = "card_credit"
 	case exchange
 	case transfer
 	case loan
 	case fee
 	case refund
 	case topup
-	case topupReturn
+	case topupReturn = "topup_return"
 	case tax
-	case taxRefund
+	case taxRefund = "tax_refund"
 }
 
 
@@ -80,6 +82,22 @@ public enum TransactionState: String, Codable {
 	case failed
 	case reverted
 	case declined
+}
+
+
+public struct TransactionMerchant: Codable {
+	public let name: String
+	public let city: String
+	public let categoryCode: String
+	public let country: String
+}
+
+
+public struct TransactionCard: Codable {
+	public let cardNumber: String
+	public let firstName: String?
+	public let lastName: String?
+	public let phone: String?
 }
 
 

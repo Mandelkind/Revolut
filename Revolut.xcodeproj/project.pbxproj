@@ -11,6 +11,7 @@
 		79081AF62084729E00530B1C /* Revolut+Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79081AF52084729E00530B1C /* Revolut+Transactions.swift */; };
 		79081AF82084734700530B1C /* Counterparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79081AF72084734700530B1C /* Counterparty.swift */; };
 		79081AFA208476A100530B1C /* Revolut+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79081AF9208476A100530B1C /* Revolut+Transaction.swift */; };
+		7979D90320DC16260008EF23 /* JSONDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7979D90220DC16260008EF23 /* JSONDecoderTests.swift */; };
 		79F77F74207A20A300268401 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F77F73207A20A300268401 /* Transaction.swift */; };
 		79F77F76207A217400268401 /* Counterparty+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F77F75207A217400268401 /* Counterparty+Account.swift */; };
 		79F77F78207A23B500268401 /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F77F77207A23B500268401 /* JSONCoding.swift */; };
@@ -51,6 +52,7 @@
 		79081AF52084729E00530B1C /* Revolut+Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Revolut+Transactions.swift"; sourceTree = "<group>"; };
 		79081AF72084734700530B1C /* Counterparty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counterparty.swift; sourceTree = "<group>"; };
 		79081AF9208476A100530B1C /* Revolut+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Revolut+Transaction.swift"; sourceTree = "<group>"; };
+		7979D90220DC16260008EF23 /* JSONDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderTests.swift; sourceTree = "<group>"; };
 		79F77F73207A20A300268401 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		79F77F75207A217400268401 /* Counterparty+Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Counterparty+Account.swift"; sourceTree = "<group>"; };
 		79F77F77207A23B500268401 /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				79FF5F2D20497E8B00386C1F /* RevolutTests.swift */,
+				7979D90220DC16260008EF23 /* JSONDecoderTests.swift */,
 				79FF5F2F20497E8B00386C1F /* Info.plist */,
 			);
 			path = RevolutTests;
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FF5F2E20497E8B00386C1F /* RevolutTests.swift in Sources */,
+				7979D90320DC16260008EF23 /* JSONDecoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
